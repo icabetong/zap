@@ -6,7 +6,7 @@ type NavigationLinkProps = {
 }
 const NavigationLink: FC<NavigationLinkProps> = ({ to, name }) => {
   return (
-    <li>
+    <li className="mx-2 font-medium text-lg text-slate-700">
       <a href={to}>
         {name}
       </a>

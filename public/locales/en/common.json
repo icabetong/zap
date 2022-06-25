@@ -4,11 +4,12 @@
     "about": "About"
   },
   "header": "Send files anonymously, for free",
-  "description": "We offer you 20 GB filesize limit and unlimited bandwidth",
+  "description": "Experience a simplified service where you can send a file up to 20 GB and an unlimited bandwidth for free",
   "button": {
-    "upload": "Upload"
+    "get-link": "Get link"
   },
   "form": {
+    "ready-to-start": "Ready to start?",
     "attach-file": "Attach a file"
   }
 }

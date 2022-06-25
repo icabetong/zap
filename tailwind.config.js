@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "rubik": ["Rubik"]
+        "work-sans": ["Work Sans"]
       }
     },
   },
