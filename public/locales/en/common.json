@@ -1,0 +1,14 @@
+{
+  "app-name": "Zap",
+  "navigation": {
+    "about": "About"
+  },
+  "header": "Send files anonymously, for free",
+  "description": "We offer you 20 GB filesize limit and unlimited bandwidth",
+  "button": {
+    "upload": "Upload"
+  },
+  "form": {
+    "attach-file": "Attach a file"
+  }
+}
