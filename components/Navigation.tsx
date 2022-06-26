@@ -10,7 +10,7 @@ const Navigation = () => {
   const onHandleMenu = () => setOpen(prev => !prev)
 
   const navItems = (
-    <ul className="flex flex-col px-2 py-2 space-y-2 md:flex-row md:space-x-8 md:space-y-0 items-center justify-center">
+    <ul className="flex flex-col px-2 py-2 space-y-2 md:flex-row md:space-y-0 items-center justify-center">
       <NavigationLink to="/" name={t("navigation.home")}/>
       <NavigationLink to="/about" name={t("navigation.about")}/>
     </ul>
