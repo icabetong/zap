@@ -43,22 +43,26 @@ const Home: NextPage = () => {
   const onTriggerUpload = async () => {
     if (file !== null) {
       setWorking(true)
-      const formData = new FormData()
-      formData.append('file', file, file.name)
-      formData.append('maxDownloads', '1')
-      formData.append('autoDelete', true)
+      try {
+        const formData = new FormData()
+        formData.append('file', file, file.name)
+        formData.append('maxDownloads', '1')
+        formData.append('autoDelete', 'true')
 
-      const response = await axios.post('https://www.file.io/', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          'Authorization': 'Bearer WXK6JNR.B4JHBVD-68X440S-GF9BJ6M-BKVFG86'
-        },
-        withCredentials: false,
-        responseType: 'json'
-      })
-      
-      console.log(response)
-      setWorking(false)
+        const response = await axios.post('https://api.openload.cc/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+          responseType: 'json'
+        })
+        
+        console.log(response)
+        
+      } catch (error) {
+        console.log(error)
+      } finally {
+        setWorking(false)
+      }
     }
   }
 
