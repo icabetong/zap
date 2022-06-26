@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { LinkIcon, ClipboardCopyIcon, UploadIcon, InformationCircleIcon } from '@heroicons/react/outline'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Navigation from '../components/Navigation'
 import Page from '../components/Page'
 import FilePicker from '../components/FilePicker'
@@ -20,7 +20,10 @@ const Home: NextPage = () => {
   const [response, setResponse] = useState<string | null>(null)
   const [file, setFile] = useState<File | null>(null)
 
-  const onReset = () => setResponse(null)
+  const onReset = () => {
+    setResponse(null)
+    setCopied(false)
+  }
 
   const onCopyToClipboard = async () => {
     if (response) {
@@ -59,15 +62,28 @@ const Home: NextPage = () => {
               <p className="mt-4 max-w-sm text-md md:text-lg text-center text-slate-500 dark:text-slate-400">{t("description")}</p>
             </div>
             <div className="mt-12 md:mt-8 flex-1 flex items-center justify-center">
-              <div className="w-96 md:max-w-sm shadow bg-white dark:bg-slate-800 border dark:border-slate-800 rounded p-4 flex flex-col">
+              <div className="w-96 md:max-w-sm shadow bg-white dark:bg-slate-800 border dark:border-slate-800 rounded p-4">
+                <AnimatePresence>
                 { response === null 
-                  ? <>
-                      <h6 className="mb-4 font-medium text-slate-600 dark:text-slate-200 text-lg">{t("form.ready-to-start")}</h6>
+                  ? <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 1 }}
+                      className="flex flex-col">
+                      <h6 className="mb-4 font-medium text-slate-600 dark:text-slate-200 text-lg">{t(isWorking ? "form.uploading" :"form.ready-to-start")}</h6>
+                      <AnimatePresence>
                       {
                         isWorking 
-                          ? <div className="w-full h-32 flex flex-col items-center justify-center"><Spinner/></div>
+                          ? <motion.div
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 1 }}
+                              className="w-full h-32 flex flex-col items-center justify-center">
+                              <Spinner/>
+                            </motion.div>
                           : <FilePicker fileName={file?.name} size={file?.size} onChange={onHandleFileInputChange}/>
                       }
+                      </AnimatePresence>
                       <button 
                         type="button"
                         disabled={isWorking || !file}
@@ -76,8 +92,12 @@ const Home: NextPage = () => {
                         { isWorking ? <UploadIcon className="w-4 h-4 mr-2"/> : <LinkIcon className="w-4 h-4 mr-2"/> }
                         { isWorking ? t("feedback.uploading") : t("button.get-link")}
                       </button>
-                    </>
-                  : <>
+                    </motion.div>
+                  : <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 1 }}
+                      className="flex flex-col">
                       <h6 className="mb-4 font-medium text-slate-600 dark:text-slate-200 text-lg">{t("form.transfer-complete")}</h6>
                       <div className="text-field-container">
                         <input className="text-field-input" type="text" value={response}/>
@@ -85,21 +105,28 @@ const Home: NextPage = () => {
                           <ClipboardCopyIcon className="w-6 h-6 text-gray-500 dark:text-gray-300"/>
                         </button>
                       </div>
+                      <AnimatePresence>
                       {
                         isCopied &&
-                        <motion.p className="flex flex-row items-center justify-start text-sm space-x-2 p-2 mr-2 mb-4 rounded-md bg-sky-100 text-sky-500 font-medium dark:bg-sky-900 dark:text-sky-400">
+                        <motion.p 
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 1 }}
+                          className="flex flex-row items-center justify-start text-sm space-x-2 p-2 mr-2 mb-4 rounded-md bg-sky-100 text-sky-500 font-medium dark:bg-sky-900 dark:text-sky-400">
                           <InformationCircleIcon className="w-6 h-6"/>
                           <span>{t("feedback.link-copied")}</span>
                         </motion.p>
                       }
+                      </AnimatePresence>
                       <button
                         type="button"
                         onClick={onReset}
                         className="button-core">
                         {t("button.upload-another")}
                       </button>
-                    </>
+                    </motion.div>
                 }
+                </AnimatePresence>
               </div>
             </div>
           </main>
