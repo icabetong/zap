@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "work-sans": ["Work Sans"]
+        "open-sans": ["Open Sans"]
       }
     },
   },

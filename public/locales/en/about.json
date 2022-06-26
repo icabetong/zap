@@ -1,3 +1,37 @@
 {
-
+  "title": "About Zap",
+  "header": "About",
+  "section": {
+    "general": "General",
+    "terms": "Terms of Service",
+    "faq": "Frequently Asked Questions"
+  },
+  "general": {
+    "header": "Zap is another front-end wrapper to the AnonFiles API, which provides a generous service to share and upload files anonymously; though we and AnonFiles have somewhat of restrictions when it comes to what files may be uploaded to their servers.",
+    "check-out": "Check out AnonFiles <link>here</link>",
+    "github-repository": "Checkout Zap's GitHub Repository"
+  },
+  "terms": {
+    "general": "General",
+    "general-desc": "It is strictly forbidden to spread viruses, trojans, corrupt and/or illegal material via Zap. Always check with your local laws before submitting content.",
+    "availability": "Availability",
+    "availability-desc": "Zap is using a third party service: AnonFiles. Zap is using their official API to connect to their service learn more <links>here</links>",
+    "logging": "Logging",
+    "logging-desc": "Together with AnonFiles, we are strong advocates of privacy & do not log downloads.",
+    "changes": "Changes",
+    "changes-desc": "This user agreement is subject to change at any time, please review this agreement before you decide to use the service. You are technically bound to accept this agreement by accessing/using the service. Also, check AnonFiles' Terms of Service and Policies."
+  },
+  "faq": {
+    "share": "How do I share my files?",
+    "share-desc": "Click the upload button to select one or more files. Once the upload is finished, we will issue you a unique URL which you can share with others who can then download the file instantly.",
+    "availability": "How long will my files be online?",
+    "availability-desc": "According to AnonFile's own <faq>FAQ</faq>, as long as possible unless it breaks their <tor>Terms of Service</tor>",
+    "limits": "What are the limit of uploads?",
+    "limits-desc": "According to AnonFiles, you are free to upload as long as you don't exceed the following restrictions:",
+    "limit-1": "Max <strong>20 GB</strong> per file",
+    "limit-2": "Max <strong>500 files</strong> or <strong>50 GB</strong> per hour.",
+    "limit-3": "Max <strong>5,000 files</strong> or <strong>100 GB</strong> per day",
+    "restrictions": "Any restrictions on downloads?",
+    "restrictions-desc": "No. We do not enforce any form of bandwidth limitations on downloads."
+  }
 }

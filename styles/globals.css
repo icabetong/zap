@@ -4,8 +4,36 @@
 
 html,
 body {
+  scroll-behavior: smooth;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+@layer components {
+  .button-core {
+    @apply text-white bg-gradient-to-r from-cyan-500 to-sky-500 hover:bg-gradient-to-bl hover:shadow focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 flex flex-row items-center justify-center disabled:opacity-50; 
+  }
+  .text-field-container {
+    @apply flex mt-2 mb-6 mr-2;
+  }
+  .text-field-end {
+    @apply inline-flex items-center px-3 text-sm text-slate-900 bg-gray-200 border border-l-0 border-gray-300 rounded-r-md dark:bg-slate-600 dark:text-gray-400 dark:border-slate-600 dark:hover:bg-slate-500 transition-all;
+  }
+  .text-field-input {
+    @apply rounded-none rounded-l-lg bg-slate-50 border border-gray-300 text-slate-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none;
+  }
+  .page-width {
+    @apply max-w-screen-xl mx-auto;
+  }
+  .feature-card {
+    @apply flex flex-col items-center justify-center px-8 py-8 shadow border rounded max-w-xs dark:bg-slate-600 dark:border-slate-600;
+  }
+  .feature-title {
+    @apply font-semibold text-2xl mb-2 dark:text-slate-50;
+  }
+  .feature-desc {
+    @apply font-normal text-center text-gray-500 leading-tight dark:text-gray-300;
+  }
 }

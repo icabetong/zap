@@ -1,15 +1,38 @@
 {
   "app-name": "Zap",
   "navigation": {
-    "about": "About"
+    "home": "Home",
+    "about": "About",
+    "terms": "Terms of Service",
+    "faq": "FAQs"
   },
   "header": "Send files anonymously, for free",
   "description": "Experience a simplified service where you can send a file up to 20 GB and an unlimited bandwidth for free",
   "button": {
-    "get-link": "Get link"
+    "get-link": "Get link",
+    "upload-another": "Upload another",
+    "open-menu": "Open Navigation Menu"
   },
   "form": {
     "ready-to-start": "Ready to start?",
-    "attach-file": "Attach a file"
+    "uploading": "Uploading your file",
+    "transfer-complete": "Transfer Complete!",
+    "attach-file": "Attach a file",
+    "file-size": "{{size}} bytes"
+  },
+  "feedback": {
+    "uploading": "File is uploading",
+    "link-copied": "Link is copied to clipboard"
+  },
+  "features": {
+    "private-header": "Private",
+    "private-summary": "No need to register, no user tracking, no ads",
+    "simple-header": "Simple",
+    "simple-summary": "Just select the file then wait for it to finish upload",
+    "free-header": "Free",
+    "free-summary": "Upload files up to 20GB for free, forever."
+  },
+  "footer": {
+    "copyright": "© 2021 Isaiah Collins Abetong. All rights reserved."
   }
 }
