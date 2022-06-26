@@ -12,6 +12,7 @@ import FeatureSection from '../components/sections/FeatureSection'
 import Footer from '../components/sections/Footer'
 import Spinner from '../components/Spinner'
 import { PageProps } from '../src/shared/types'
+import axios from 'axios'
 
 const Home: NextPage = () => {
   const { t } = useTranslation('common')
@@ -40,11 +41,22 @@ const Home: NextPage = () => {
   }
 
   const onTriggerUpload = async () => {
-    setWorking(true)
-    setTimeout(() => {
-      setResponse('this')
+    if (file !== null) {
+      setWorking(true)
+      const formData = new FormData()
+      formData.append('file', file, file.name)
+
+      const response = await axios.post('https://api.anonfiles.com/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        withCredentials: false,
+        responseType: 'json'
+      })
+      
+      console.log(response)
       setWorking(false)
-    }, 5000)
+    }
   }
 
   return (
