@@ -45,10 +45,13 @@ const Home: NextPage = () => {
       setWorking(true)
       const formData = new FormData()
       formData.append('file', file, file.name)
+      formData.append('maxDownloads', '1')
+      formData.append('autoDelete', true)
 
-      const response = await axios.post('https://api.anonfiles.com/upload', formData, {
+      const response = await axios.post('https://www.file.io/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
+          'Authorization': 'Bearer WXK6JNR.B4JHBVD-68X440S-GF9BJ6M-BKVFG86'
         },
         withCredentials: false,
         responseType: 'json'
