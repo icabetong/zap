@@ -5,7 +5,6 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Footer from '../components/sections/Footer'
 import Navigation from '../components/Navigation'
-import Page from '../components/Page'
 import { PageProps } from '../src/shared/types'
 
 const AboutPage: NextPage = () => {
@@ -16,7 +15,7 @@ const AboutPage: NextPage = () => {
       <Head>
         <title>{t("title")}</title>
       </Head>
-      <Page className="bg-slate-700">
+      <div className="page">
         <Navigation/>
         <div className="page-width px-8 md:px-4 text-slate-800 dark:text-slate-50">
           <main className="py-20 flex flex-col md:flex-row items-center justify-center">
@@ -113,7 +112,7 @@ const AboutPage: NextPage = () => {
           </section>
         </div>
         <Footer/>
-      </Page>
+      </div>
     </>
   )
 }

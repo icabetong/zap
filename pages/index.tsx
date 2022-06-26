@@ -5,14 +5,13 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { LinkIcon, ClipboardCopyIcon, UploadIcon, InformationCircleIcon } from '@heroicons/react/outline'
 import { motion, AnimatePresence } from 'framer-motion'
+import axios from 'axios'
 import Navigation from '../components/Navigation'
-import Page from '../components/Page'
 import FilePicker from '../components/FilePicker'
 import FeatureSection from '../components/sections/FeatureSection'
 import Footer from '../components/sections/Footer'
 import Spinner from '../components/Spinner'
 import { PageProps } from '../src/shared/types'
-import axios from 'axios'
 
 const Home: NextPage = () => {
   const { t } = useTranslation('common')
@@ -49,10 +48,12 @@ const Home: NextPage = () => {
         formData.append('maxDownloads', '1')
         formData.append('autoDelete', 'true')
 
-        const response = await axios.post('https://api.openload.cc/upload', formData, {
+        const response = await axios.post('https://www.file.io/', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
+            'Authorization': 'Bearer WXK6JNR.B4JHBVD-68X440S-GF9BJ6M-BKVFG86'
           },
+          withCredentials: true,
           responseType: 'json'
         })
         
@@ -71,7 +72,7 @@ const Home: NextPage = () => {
       <Head>
         <title>{t("app-name")}</title>
       </Head>
-      <Page className="relative">
+      <div className="page">
         <div className="bg-gradient-to-r from-cyan-50 to-sky-50 dark:from-cyan-900 dark:to-sky-900 h-full object-cover absolute w-full"/>
         <div className="relative">
           <Navigation/>
@@ -152,7 +153,7 @@ const Home: NextPage = () => {
           <FeatureSection/>
           <Footer/>
         </div>
-      </Page>
+      </div>
     </>
   )
 }
