@@ -45,8 +45,8 @@ const Home: NextPage = () => {
       try {
         const data = new FormData()
         data.append('file', file, file.name)
-
-        const response = await fetch('https://api.anonfiles.com/upload', {
+        //to bypass CORS https://github.com/Rob--W/cors-anywhere
+        const response = await fetch('https://cors-anywhere.herokuapp.com/https://api.filechan.org/upload', {
           method: 'POST',
           body: data,
         })
